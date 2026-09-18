@@ -3,9 +3,9 @@ FROM n8nio/n8n:latest
 ENV N8N_PORT=5678
 ENV N8N_PROTOCOL=http
 ENV N8N_ENDPOINT_HEALTH=health
-ENV N8N_HOST=n8n-aura-1u2f.onrender.com
-ENV N8N_EDITOR_BASE_URL=https://n8n-aura-1u2f.onrender.com
-ENV WEBHOOK_URL=https://n8n-aura-1u2f.onrender.com
+ENV N8N_HOST=n8n-aura-xdr2.onrender.com
+ENV N8N_EDITOR_BASE_URL=https://n8n-aura-xdr2.onrender.com
+ENV WEBHOOK_URL=https://n8n-aura-xdr2.onrender.com
 ENV N8N_ENCRYPTION_KEY=16f643220dfc603966d95ffa51cd92e950f3ac053989e257cac4c3355e18a094
 ENV DB_TYPE=postgresdb
 ENV DB_POSTGRESDB_DATABASE=postgres
@@ -22,6 +22,11 @@ ENV QUEUE_BULL_REDIS_PASSWORD=gQAAAAAAAgRzAAIgcDFhYmNmYjdjNTI1MDA0ODA1YTEzNDI5ZW
 ENV QUEUE_BULL_REDIS_TLS=true
 ENV EXECUTIONS_MODE=queue
 
+USER root
+RUN mkdir -p /home/node/.n8n && chown -R node:node /home/node/.n8n
+USER node
+
 EXPOSE 5678
 
-CMD ["n8n", "start"]
+ENTRYPOINT ["n8n"]
+CMD ["start"]
