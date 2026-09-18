@@ -22,11 +22,6 @@ ENV QUEUE_BULL_REDIS_PASSWORD=gQAAAAAAAgRzAAIgcDFhYmNmYjdjNTI1MDA0ODA1YTEzNDI5ZW
 ENV QUEUE_BULL_REDIS_TLS=true
 ENV EXECUTIONS_MODE=queue
 
-USER root
-RUN mkdir -p /home/node/.n8n && chown -R node:node /home/node/.n8n
-USER node
+VOLUME /home/node/.n8n
 
-EXPOSE 5678
-
-ENTRYPOINT ["n8n"]
-CMD ["start"]
+CMD ["n8n", "start"]
