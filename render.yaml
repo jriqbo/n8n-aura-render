@@ -1,51 +1,7 @@
 services:
   - type: web
     name: n8n-aura
-    runtime: image
-    image:
-      url: docker.io/n8nio/n8n:latest
+    runtime: docker
+    dockerfilePath: ./Dockerfile
     plan: free
     region: oregon
-    envVars:
-      - key: N8N_PORT
-        value: "5678"
-      - key: N8N_PROTOCOL
-        value: "http"
-      - key: N8N_ENDPOINT_HEALTH
-        value: "health"
-      - key: N8N_HOST
-        value: "n8n-aura-xa23.onrender.com"
-      - key: N8N_EDITOR_BASE_URL
-        value: "https://n8n-aura-xa23.onrender.com"
-      - key: WEBHOOK_URL
-        value: "https://n8n-aura-xa23.onrender.com"
-      - key: N8N_ENCRYPTION_KEY
-        value: "16f643220dfc603966d95ffa51cd92e950f3ac053989e257cac4c3355e18a094"
-      - key: DB_TYPE
-        value: "postgresdb"
-      - key: DB_POSTGRESDB_DATABASE
-        value: "postgres"
-      - key: DB_POSTGRESDB_USER
-        value: "postgres"
-      - key: DB_POSTGRESDB_HOST
-        value: "db.pjndbdscecyyjbaowmhm.supabase.co"
-      - key: DB_POSTGRESDB_PORT
-        value: "5432"
-      - key: DB_POSTGRESDB_PASSWORD
-        value: "AuraDb2026x"
-      - key: DB_POSTGRESDB_SSL_ENABLED
-        value: "true"
-      - key: DB_POSTGRESDB_SSL_REJECT_UNAUTHORIZED
-        value: "false"
-      - key: GENERIC_TIMEZONE
-        value: "America/Santiago"
-      - key: QUEUE_BULL_REDIS_HOST
-        value: "valid-vulture-132211.upstash.io"
-      - key: QUEUE_BULL_REDIS_PORT
-        value: "6379"
-      - key: QUEUE_BULL_REDIS_PASSWORD
-        value: "gQAAAAAAAgRzAAIgcDFhYmNmYjdjNTI1MDA0ODA1YTEzNDI5ZWIzNmRhYWU0OQ"
-      - key: QUEUE_BULL_REDIS_TLS
-        value: "true"
-      - key: EXECUTIONS_MODE
-        value: "queue"
